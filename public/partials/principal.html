@@ -1,6 +1,7 @@
 <div class="jumbotron">
   <h1 class="text-center">Alurapic</h1>
 </div>
+<p class="alert alert-info" ng-show="mensagem.length">{{mensagem}}</p>
 <div class="row">
   <div class="col-md-12">
     <form>
@@ -27,10 +28,18 @@
     ng-repeat="foto in fotos | filter: filtro "
     titulo="{{foto.titulo}}"
   >
+    <!-- inserir diretiva minha-foto aqui -->
     <img
       class="img-responsive center-block"
       src="{{foto.url}}"
       alt="{{foto.titulo}}"
     />
+    <!-- envio para a url o id da foto q está sendo clicada -->
+    <a href="fotos/edit/{{foto._id}}" class="btn btn-primary btn-block"
+      >Editar</a
+    >
+    <button class="btn btn-danger btn-block" ng-click="remover(foto)">
+      remover
+    </button>
   </meu-painel>
 </div>

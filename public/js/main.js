@@ -17,6 +17,11 @@ angular
       templateUrl: 'partials/foto.html',
       controller: 'FotoController',
     });
+    // passa o parametro com : para a pagina de edicao
+    $routeProvider.when('/fotos/edit/:fotoId', {
+      templateUrl: 'partials/foto.html',
+      controller: 'FotoController',
+    });
     //redirecionamento caso não exista
     $routeProvider.otherwise({ redirectTo: '/fotos' });
   });

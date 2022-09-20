@@ -1,0 +1,36 @@
+<div class="jumbotron">
+  <h1 class="text-center">Alurapic</h1>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <form>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <a href="fotos/new" class="btn btn-primary">Nova foto</a>
+        </span>
+        <input
+          ng-model="filtro"
+          ng-model-options="{debounce: 500}"
+          type="text"
+          class="form-control"
+          placeholder="filtrar"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <!-- renderiza o array, como ngfor -->
+  <!-- | filter: filtro, utiliza recurso de filtragem utilizando o scope filtro, dado vindo do ng-model no input -->
+  <meu-painel
+    class="col-md-2 painel-animado"
+    ng-repeat="foto in fotos | filter: filtro "
+    titulo="{{foto.titulo}}"
+  >
+    <img
+      class="img-responsive center-block"
+      src="{{foto.url}}"
+      alt="{{foto.titulo}}"
+    />
+  </meu-painel>
+</div>

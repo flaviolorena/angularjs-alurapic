@@ -1,0 +1,48 @@
+<div class="page-header text-center">
+  <h1>{{foto.titulo}}</h1>
+</div>
+
+<!-- novalidate desabilita validacoes do html5 -->
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Título</label>
+      <input
+        name="titulo"
+        ng-model="foto.titulo"
+        class="form-control"
+        required
+      />
+      <!-- ng-show funciona como ngif -->
+      <!-- $error identifica se há erro usando o name do formulario e name do input -->
+      <span
+        ng-show="formulario.titulo.$error.required"
+        class="form-control alert-danger"
+      >
+        Título obrigatorio
+      </span>
+    </div>
+    <div class="form-group">
+      <label>URL</label>
+      <input name="url" ng-model="foto.url" class="form-control" required />
+      <span
+        ng-show="formulario.url.$error.required"
+        class="form-control alert-danger"
+      >
+        URL obrigatoria
+      </span>
+    </div>
+    <div class="form-group">
+      <label>Descrição</label>
+      <textarea name="descricao" ng-model="foto.descricao" class="form-control">
+      </textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="/" class="btn btn-primary">Voltar</a>
+    <hr />
+  </div>
+  <div class="col-md-6">
+    <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
+  </div>
+</form>

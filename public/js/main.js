@@ -1,7 +1,12 @@
 // criação de modulo, recebe 2 parametros, o nome e as dependencias. o segundo precisa ser declarado mesmo q vazio
 
 angular
-  .module('alurapic', ['minhasDiretivas', 'ngAnimate', 'ngRoute'])
+  .module('alurapic', [
+    'minhasDiretivas',
+    'ngAnimate',
+    'ngRoute',
+    'meusServicos',
+  ])
 
   //configuração de rotas
   //definindo a url, o arquivo a ser carregado e o controller responsavel
